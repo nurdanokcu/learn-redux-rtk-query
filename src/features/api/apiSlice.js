@@ -5,12 +5,11 @@ export const USER_ID = 5958
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({baseUrl: 'https://mate.academy/students-api'}),
-  tagTypes: ['Todos'],
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://mate.academy/students-api' }),
   endpoints: (builder) => ({
     getTodos: builder.query({
-      query: (userId) => `/todos?userId=${userId}`,
-      providesTags: ['Todos']
+      query: () => `/todos?userId=${USER_ID}`,
+      providesTags: () => ['Todos'],
     }),
     addTodo: builder.mutation({
       query: (title) => ({
