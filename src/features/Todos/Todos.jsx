@@ -10,9 +10,12 @@ export const Todos = () => {
 
   console.log(state)
 
-  const addTodo = () => {
-    dispatch(createTodoAsync(query));
-    setQuery('');
+  const addTodo = (event) => {
+    event.preventDefault();
+    if(query) {
+      dispatch(createTodoAsync(query));
+      setQuery('');
+    }
   }
 
   useEffect(() => {
